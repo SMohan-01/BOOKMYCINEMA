@@ -1,0 +1,30 @@
+package com.bookmymovie.data;
+
+import java.time.*;
+import java.util.*;
+import com.bookmymovie.models.*;
+
+public class DataStore {
+
+	public static Map<String, String> users = new HashMap<>();
+	public static List<Show> shows = new ArrayList<>();
+	public static List<Booking> bookings = new ArrayList<>();
+
+	public static void init() {
+		Screen screen1 = new Screen("Screen-1");
+
+		Movie movie1 = new Movie("The Dark Knight", "Action", 150);
+		Movie movie2 = new Movie("Leo", "Action", 180);
+		Movie movie3 = new Movie("Inception", "Sci-fi", 165);
+		Movie movie4 = new Movie("Good Bad Ugly", "Action", 180);
+		Movie
+
+		LocalDate today = LocalDate.now();
+
+		shows.add(new Show(movie1, screen1, LocalDateTime.of(today, LocalTime.of(10, 0))));
+		shows.add(new Show(movie2, screen1, LocalDateTime.of(today, LocalTime.of(14, 0))));
+		shows.add(new Show(movie3, screen1, LocalDateTime.of(today, LocalTime.of(17, 0))));
+		shows.add(new Show(movie4, screen1, LocalDateTime.of(today, LocalTime.of(20, 0))));
+
+	}
+}

@@ -1,0 +1,55 @@
+package com.bookmymovie.models;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Show {
+	
+	private Movie movie;
+	private Screen screen;
+	private LocalDateTime showTime;
+	private Map<String, Boolean> seats = new HashMap<>();
+	
+	public Show(Movie movie, Screen screen, LocalDateTime showTime) {
+		this.movie = movie;
+		this.screen = screen;
+		this.showTime = showTime;
+		
+		for(char row = 'A'; row<='X'; row++) {
+			for(int i = 1;i <= 10; i++) {
+				seats.put(String.valueOf(row) + i, false);
+			}
+		}
+	}
+	
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+	
+	public void setScreen(Screen screen) {
+		this.screen = screen;
+	}
+	
+	public void setShowTime(LocalDateTime showTime) {
+		this.showTime = showTime;
+	}
+	
+	public void setSeats(Map<String, Boolean> seats) {
+		this.seats = seats;
+	}
+	
+	public Movie getMovie() {
+		return this.movie;
+	}
+	
+	public Screen getScreen() {
+		return this.screen;
+	}
+	
+	public LocalDate getScreenTime() {
+		return this.showTime.format(DateTimeFormatter.ofPattern("dd MMM yyyy, hh : mm : a"));
+	}
+
+}

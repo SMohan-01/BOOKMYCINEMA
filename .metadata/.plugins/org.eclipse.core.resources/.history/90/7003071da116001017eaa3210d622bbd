@@ -1,0 +1,45 @@
+package com.bookmymovie.models;
+
+public class Movie {
+	
+	private String movieName;
+	private String genre;
+	private int duration;
+	
+	public Movie(String movieName, String genre, int duration) {
+		this.movieName = movieName;
+		this.genre = genre;
+		this.duration = duration;
+	}
+	
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+	
+	public String getMovieName() {
+		return this.movieName;
+	}
+	
+	public String getGenre() {
+		return this.genre;
+	}
+	
+	public int getDuration() {
+		return this.duration;
+	}
+	
+	@Override
+	public String toString() {
+		return "";
+	}
+	
+
+}

@@ -1,0 +1,11 @@
+package com.bookmymovie.models;
+
+public class Movie {
+	
+	private String movieName;
+	private String genere;
+	private int duration;
+	
+	public Movie(String movieName, String genre)
+
+}

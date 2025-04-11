@@ -1,0 +1,16 @@
+package com.bookmymovie.data;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.bookmymovie.models.Booking;
+import com.bookmymovie.models.Show;
+
+public class dataStore {
+
+	public static Map<String,String> users = new HashMap<>();
+	public static List<Show> shows = new ArrayList<>();
+	public static List<Booking> bookings = new ArrayList<>();
+}

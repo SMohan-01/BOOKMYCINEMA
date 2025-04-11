@@ -1,0 +1,103 @@
+package com.bookmymovie.services;
+
+import java.time.*;
+import java.util.*;
+import com.bookmymovie.data.*;
+import com.bookmymovie.models.*;
+
+
+public class BookingService {
+
+	private Scanner scanner = new Scanner(System.in);
+
+	public void customerActions(String user) {
+		while (true) {
+			System.out.println("\n 1. View Movies");
+			System.out.println("2. Book Movie");
+			System.out.println("3. View Bookings");
+			System.out.println("4. Back");
+			System.out.println("Enter Your Choice : ");
+			int choice = scanner.nextInt();
+			scanner.nextLine();
+
+			switch (choice) {
+			case 1: {
+				showMoviesList();
+				break;
+			}
+			case 2: {
+				bookMovie(user);
+				break;
+			}
+			case 3: {
+				showMyBookings();
+				break;
+			}
+			case 4: {
+				return;
+			}
+			default: {
+				System.out.println("Invalid Choice");
+			}
+			}
+		}
+
+	}
+
+	private void showMyBookings() {
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println("Showing Now : ");
+		for(Show show : dataStore.shows) {
+			if(show.getShowTime().isAfter(now)) {
+				System.out.println(show);
+			}
+		}
+		
+	}
+
+	private void bookMovie(String user) {
+		System.out.println("Enter Movie Name");
+		String movieName = scanner.nextLine();
+		List<Show> matched = new ArrayList<>();
+		
+		for(Show s : dataStore.shows) {
+			if(s.getMovie().getMovieName().equalsIgnoreCase(movieName) && s.getShowTime().isAfter(LocalDateTime.now())) {
+				matched.add(s);
+			}
+		}
+		
+		if(matched.isEmpty()) {
+			System.out.println("No Movies Showing rightNow, Try Again Tommorrow");
+			return;
+		}
+		
+		System.out.println("Select Show : ");
+		for(int i=0;i<matched.size();i++) {
+			System.out.println((i + 1) + "." + matched.get(i));
+		}
+		
+		int index = scanner.nextInt();
+		scanner.nextLine();
+		Show selected = matched.get(index - 1);
+		
+		Map<String,Boolean> seats = selected.getSeats();
+		
+		for(char row = 'A'; row <= 'X'; row++) {
+			System.out.println(row + " : ");
+			for(int i = 1; i <= 10; i++) {
+				String s = String.valueOf(row) + i;
+				System.out.println(seats.get(s)? "X " : s + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Enter The Seat Number To Book : ");
+		String 
+	}
+
+	private void showMoviesList() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

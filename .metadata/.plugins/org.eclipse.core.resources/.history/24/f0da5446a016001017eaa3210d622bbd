@@ -1,0 +1,25 @@
+package com.bookmymovie.models;
+
+public class Screen {
+
+	private String screenName;
+	
+	public Screen(String screenName) {
+		this.screenName = screenName;
+	}
+	
+	public void setScreenName(String screenName) {
+		this.screenName = screenName;
+	}
+	
+	public String getScreenName() {
+		return this.screenName;
+	}
+
+	@Override
+	public String toString() {
+		return "Screen :" + this.screenName;
+	}
+	
+	
+}

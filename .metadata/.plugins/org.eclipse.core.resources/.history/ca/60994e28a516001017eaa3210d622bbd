@@ -1,0 +1,20 @@
+package com.bookmymovie.models;
+
+public class Booking {
+	
+	private Show show;
+	private String seatNumber;
+	private String customerName;
+	
+	public Booking(Show show, String seatNunber, String customerName) {
+		this.show = show;
+		this.seatNumber = seatNunber;
+		this.customerName = customerName;
+	}
+	
+	@Override
+	public String toString() {
+		return "Movie : " + show.getMovie().getMovieName() + ", "
+	}
+
+}

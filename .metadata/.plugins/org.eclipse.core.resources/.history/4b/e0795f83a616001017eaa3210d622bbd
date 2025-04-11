@@ -1,0 +1,27 @@
+package com.bookmymovie.data;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.bookmymovie.models.Booking;
+import com.bookmymovie.models.Movie;
+import com.bookmymovie.models.Screen;
+import com.bookmymovie.models.Show;
+
+public class dataStore {
+
+	public static Map<String,String> users = new HashMap<>();
+	public static List<Show> shows = new ArrayList<>();
+	public static List<Booking> bookings = new ArrayList<>();
+	
+	public static void init() {
+		Screen screen1 = new Screen("Screen-1");
+		
+		Movie movie1 = new Movie("The Dark Knight", "Action", 150);
+		Movie movie2 = new Movie("Leo", "Action", 180);
+		Movie movie3 = new Movie("Inception", "Sci-fi",165);
+		Movie movie4 = new Movie("Good Bad Ugl")
+	}
+}

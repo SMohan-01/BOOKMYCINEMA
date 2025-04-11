@@ -1,0 +1,59 @@
+package com.bookmymovie;
+
+import java.util.*;
+import com.bookmymovie.data.*;
+import com.bookmymovie.services.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		DataStore.init();
+		Scanner scanner = new Scanner(System.in);
+		BookingService bookingService = new BookingService();
+
+		while (true) {
+			System.out.println("Welcome To BookMyMovie");
+			System.out.println("\n1.Register");
+			System.out.println("2. Login");
+			System.out.println("3. Exit");
+			System.out.println("Enter Choice : ");
+			int choice = scanner.nextInt();
+			scanner.nextLine();
+
+			switch (choice) {
+			  case 1: {
+				System.out.println("Enter UserName : ");
+				String userName = scanner.nextLine();
+				System.out.println("Enter Password : ");
+				String password = scanner.nextLine();
+				DataStore.users.put(userName, password);
+				System.out.println("Regsitered Sucessfully !");
+				break;
+			  }
+			  case 2: {
+				System.out.println("Enter UserName : ");
+				String userName = scanner.nextLine();
+				System.out.println("Enter Password : ");
+				String password = scanner.nextLine();
+				if (DataStore.users.containsKey(userName) && DataStore.users.get(userName).equals(password)) {
+					System.out.println("Login Successfull !");
+					bookingService.customerActions(userName);
+				} else {
+					System.out.println("Invalid Credentials");
+				}
+				break;
+
+			  }
+			case 3: {
+				System.out.println("Thank You for Using BookMyMovie");
+				return;
+			}
+			default: {
+				System.out.println("Invalid Choice");
+			}
+			}
+		}
+
+	}
+
+}

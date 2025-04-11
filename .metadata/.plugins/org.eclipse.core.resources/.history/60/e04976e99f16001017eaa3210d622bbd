@@ -1,0 +1,8 @@
+package com.bookmymovie.models;
+
+public class Screen {
+
+	private String name;
+	
+	public Screen()
+}
